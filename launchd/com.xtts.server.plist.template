@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.xtts.server</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>__RUN_SCRIPT__</string>
+    </array>
+
+    <key>WorkingDirectory</key>
+    <string>__SERVER_DIR__</string>
+
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>PYTHONUNBUFFERED</key>
+        <string>1</string>
+        <key>XTTS_HOST</key>
+        <string>0.0.0.0</string>
+        <key>XTTS_PORT</key>
+        <string>8020</string>
+    </dict>
+
+    <key>RunAtLoad</key>
+    <true/>
+    <key>KeepAlive</key>
+    <true/>
+
+    <key>StandardOutPath</key>
+    <string>/tmp/xtts.out.log</string>
+    <key>StandardErrorPath</key>
+    <string>/tmp/xtts.err.log</string>
+
+    <key>ProcessType</key>
+    <string>Background</string>
+</dict>
+</plist>

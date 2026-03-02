@@ -1,0 +1,15 @@
+fastapi==0.115.8
+uvicorn[standard]==0.34.0
+python-multipart==0.0.20
+pydantic==2.10.6
+pydantic-settings==2.7.1
+coqui-tts[codec]==0.27.5
+torch>=2.6.0
+torchaudio>=2.6.0
+transformers<5
+numpy==1.26.4
+soundfile==0.13.1
+zeroconf==0.146.1
+python-dotenv==1.0.1
+pypinyin
+qrcode[pil]==7.4.2
