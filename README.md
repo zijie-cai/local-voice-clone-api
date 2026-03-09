@@ -8,7 +8,7 @@
 
 <p>
   <img src="https://img.shields.io/badge/Python-3.10--3.12-3776AB?style=for-the-badge&logo=python&logoColor=FFD43B" alt="Python 3.10-3.12">
-  <img src="https://img.shields.io/badge/API-FastAPI-009485?style=for-the-badge&logo=fastapi&logoColor=white" alt="FastAPI">
+  <img src="https://img.shields.io/badge/API-FastAPI-009485?style=for-the-badge&logo=fastapi&logoColor=E8FFF7" alt="FastAPI">
   <img src="https://img.shields.io/badge/TTS-Coqui%20XTTS--v2-7C3AED?style=for-the-badge" alt="Coqui XTTS-v2">
 </p>
 <p>
