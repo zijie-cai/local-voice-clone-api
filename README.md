@@ -14,7 +14,7 @@
   <img src="https://img.shields.io/badge/clients-iOS%20app%20%7C%20AI%20agents-EC4899?style=for-the-badge" alt="Clients">
 </p>
 
-**One-line install. Local HTTP API. iOS pairing. Optional BlueBubbles audio-message routing.**
+`One-line install` · `Local HTTP API` · `iOS pairing` · `Optional BlueBubbles routing`
 
 </div>
 
