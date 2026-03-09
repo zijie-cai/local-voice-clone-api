@@ -281,68 +281,6 @@ tail -f /tmp/xtts.out.log /tmp/xtts.err.log
 └── requirements.txt
 ```
 
-## Troubleshooting
-
-### Python version mismatch
-
-Use Python `3.10` to `3.12`:
-
-```bash
-PYTHON_BIN=python3.12 ./install.sh
-```
-
-### Dependency issues
-
-Recreate the virtual environment:
-
-```bash
-rm -rf .venv
-./install.sh
-```
-
-### Server is not responding
-
-Check:
-
-```bash
-launchctl print gui/$(id -u)/com.xtts.server
-tail -f /tmp/xtts.out.log /tmp/xtts.err.log
-```
-
-### The Mac sleeps and the server disappears
-
-Use:
-
-```bash
-USE_CAFFEINATE=1 ./install.sh
-```
-
-Or adjust macOS power settings so the machine stays awake when needed.
-
-### iOS app cannot pair
-
-Verify:
-- the server is reachable from the phone
-- the token is correct
-- the pairing host is correct
-- `XTTS_PAIR_HOST` is set if auto-detection chooses the wrong address
-
-## Known V1 Scope
-
-This repo is a practical V1.
-
-Strong today:
-- local XTTS generation
-- launchd background runtime
-- token auth
-- iOS pairing
-- agent-friendly install + API usage
-
-Still intentionally simple:
-- macOS-first installer
-- no dynamic client sync for every server-side limit
-- no hosted control plane
-
 ## Attribution
 
 Voice cloning and speech generation are powered by Coqui XTTS-v2.
