@@ -4,7 +4,6 @@
 
 ### 🦞 [OpenClaw Demo](https://github.com/user-attachments/assets/737776b3-16ee-4d83-a9e1-8bab96252f08)
 
-https://github.com/user-attachments/assets/737776b3-16ee-4d83-a9e1-8bab96252f08
 ---
 
 <p>
