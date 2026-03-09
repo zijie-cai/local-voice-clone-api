@@ -2,6 +2,8 @@
 
 <img src="./assets/banner.png" alt="local-voice-clone-api banner" width="1100">
 
+---
+
 <p>
   <img src="https://img.shields.io/badge/Python-3.10--3.12-3776AB?style=for-the-badge&logo=python&logoColor=FFD43B" alt="Python 3.10-3.12">
   <img src="https://img.shields.io/badge/API-FastAPI-009485?style=for-the-badge&logo=fastapi&logoColor=E8FFF7" alt="FastAPI">
