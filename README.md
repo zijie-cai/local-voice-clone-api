@@ -34,6 +34,10 @@ This repo is the backend only. It does **not** include the iOS app code.
 
 https://github.com/user-attachments/assets/737776b3-16ee-4d83-a9e1-8bab96252f08
 
+### 📱 iOS app demo
+
+Add an iOS demo video to `assets/ios-demo.mp4` and link it here.
+
 ## Features
 
 - **XTTS-v2 voice cloning API** with `POST /v1/tts`
