@@ -2,16 +2,18 @@
 
 <img src="./assets/banner.png" alt="local-voice-clone-api banner" width="1100">
 
-### Local XTTS voice cloning API for apps and AI agents
+## Voice cloning API for apps and AI agents
+
+**🎙️ Local XTTS voice cloning**
 
 <p>
-  <img src="https://img.shields.io/badge/Python-3.10--3.12-2F6FEB?style=for-the-badge&logo=python&logoColor=white" alt="Python 3.10-3.12">
-  <img src="https://img.shields.io/badge/API-FastAPI-12A150?style=for-the-badge&logo=fastapi&logoColor=white" alt="FastAPI">
-  <img src="https://img.shields.io/badge/TTS-Coqui%20XTTS--v2-6E40FF?style=for-the-badge" alt="Coqui XTTS-v2">
+  <img src="https://img.shields.io/badge/Python-3.10--3.12-3776AB?style=for-the-badge&logo=python&logoColor=FFD43B" alt="Python 3.10-3.12">
+  <img src="https://img.shields.io/badge/API-FastAPI-009485?style=for-the-badge&logo=fastapi&logoColor=white" alt="FastAPI">
+  <img src="https://img.shields.io/badge/TTS-Coqui%20XTTS--v2-7C3AED?style=for-the-badge" alt="Coqui XTTS-v2">
 </p>
 <p>
-  <img src="https://img.shields.io/badge/runtime-launchd-5E6572?style=for-the-badge" alt="launchd">
-  <img src="https://img.shields.io/badge/clients-iOS%20app%20%7C%20AI%20agents-0A84FF?style=for-the-badge" alt="Clients">
+  <img src="https://img.shields.io/badge/runtime-launchd-FF6B35?style=for-the-badge" alt="launchd">
+  <img src="https://img.shields.io/badge/clients-iOS%20app%20%7C%20AI%20agents-EC4899?style=for-the-badge" alt="Clients">
 </p>
 
 **One-line install. Local HTTP API. iOS pairing. Optional BlueBubbles audio-message routing.**
