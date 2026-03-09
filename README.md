@@ -2,8 +2,9 @@
 
 <img src="./assets/banner-v2.png" alt="local-voice-clone-api banner" width="1100">
 
-### 🦞 [OpenClaw Demo](https://github.com/user-attachments/assets/f03e2ad7-b7c4-47b7-b56a-c13bb7ef6de4)
+### 🦞 OpenClaw Demo
 
+https://github.com/user-attachments/assets/737776b3-16ee-4d83-a9e1-8bab96252f08
 ---
 
 <p>
