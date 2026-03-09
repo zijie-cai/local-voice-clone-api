@@ -36,7 +36,7 @@ https://github.com/user-attachments/assets/6d19254c-1389-4207-a02e-f0dc7021ada5
 
 ### 📱 iOS app demo
 
-https://github.com/zijie-cai/local-voice-clone-api/raw/main/assets/demo_ios.mp4
+https://github.com/user-attachments/assets/68c3cb9d-dbca-4208-b652-7b755652bca9
 
 ## Features
 
