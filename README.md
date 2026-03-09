@@ -5,10 +5,12 @@
 ### Local XTTS voice cloning API for apps and AI agents
 
 <p>
-  <img src="https://img.shields.io/badge/Python-3.10--3.12-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python 3.10-3.12">
-  <img src="https://img.shields.io/badge/API-FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white" alt="FastAPI">
-  <img src="https://img.shields.io/badge/TTS-Coqui%20XTTS--v2-111111?style=for-the-badge" alt="Coqui XTTS-v2">
-  <img src="https://img.shields.io/badge/runtime-launchd-555555?style=for-the-badge" alt="launchd">
+  <img src="https://img.shields.io/badge/Python-3.10--3.12-2F6FEB?style=for-the-badge&logo=python&logoColor=white" alt="Python 3.10-3.12">
+  <img src="https://img.shields.io/badge/API-FastAPI-12A150?style=for-the-badge&logo=fastapi&logoColor=white" alt="FastAPI">
+  <img src="https://img.shields.io/badge/TTS-Coqui%20XTTS--v2-6E40FF?style=for-the-badge" alt="Coqui XTTS-v2">
+</p>
+<p>
+  <img src="https://img.shields.io/badge/runtime-launchd-5E6572?style=for-the-badge" alt="launchd">
   <img src="https://img.shields.io/badge/clients-iOS%20app%20%7C%20AI%20agents-0A84FF?style=for-the-badge" alt="Clients">
 </p>
 
