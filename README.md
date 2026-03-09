@@ -2,7 +2,7 @@
 
 <img src="./assets/banner.png" alt="local-voice-clone-api banner" width="1100">
 
-## Local voice cloning API
+## Built for apps and AI agents
 
 <p>
   <img src="https://img.shields.io/badge/Python-3.10--3.12-3776AB?style=for-the-badge&logo=python&logoColor=FFD43B" alt="Python 3.10-3.12">
