@@ -36,7 +36,7 @@ https://github.com/user-attachments/assets/737776b3-16ee-4d83-a9e1-8bab96252f08
 
 ### 📱 iOS app demo
 
-Add an iOS demo video to `assets/ios-demo.mp4` and link it here.
+https://github.com/user-attachments/assets/deecb125-03ed-4d27-bbae-ece7edbdb8b4
 
 ## Features
 
