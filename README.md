@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="./assets/banner.png" alt="local-voice-clone-api banner" width="1100">
+<img src="./assets/banner-v2.png" alt="local-voice-clone-api banner" width="1100">
 
 ---
 
