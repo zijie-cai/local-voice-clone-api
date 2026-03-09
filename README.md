@@ -2,8 +2,6 @@
 
 <img src="./assets/banner.png" alt="local-voice-clone-api banner" width="1100">
 
-# local-voice-clone-api
-
 ### Local XTTS voice cloning API for apps and AI agents
 
 <p>
