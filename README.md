@@ -1,45 +1,59 @@
-# XTTS Server (Backend)
+# local-voice-clone-api
 
-Production-style local XTTS-v2 server for iOS clients.
+> Local XTTS voice cloning server for AI agents and apps.
+>
+> One-line install, launchd background service, QR pairing, and agent-friendly HTTP API.
 
-## Goals
-- One-line bootstrap for new users.
-- Works as a background launchd service after install.
-- Agent-friendly and non-interactive by default.
+---
 
-## Quick Start (macOS)
+## What This Is
 
-### One-line install (from this local repo)
+`local-voice-clone-api` is the local server behind your iOS app and/or AI agents.
+
+It does:
+- XTTS-v2 voice cloning + TTS (`/v1/tts`)
+- Background runtime on macOS via `launchd`
+- Pairing QR generation for quick mobile setup
+- Optional iMessage-style audio send pipeline (via BlueBubbles)
+
+It does **not** include the iOS app code in this repo.
+
+---
+
+## One-Line Install (No Manual Clone Step)
+
 ```bash
-cd xtts_local && ./install.sh
+bash -lc 'set -e; TMP_DIR="$(mktemp -d)"; git clone --depth=1 https://github.com/zijie-cai/local-voice-clone-api.git "$TMP_DIR/local-voice-clone-api"; cd "$TMP_DIR/local-voice-clone-api"; ./install.sh'
 ```
 
-### One-line install (after GitHub publish, no manual clone step)
-Replace `YOUR_ORG/YOUR_REPO`:
-```bash
-bash -lc 'set -e; TMP_DIR="$(mktemp -d)"; git clone --depth=1 https://github.com/YOUR_ORG/YOUR_REPO.git "$TMP_DIR/xtts_local"; cd "$TMP_DIR/xtts_local"; ./install.sh'
-```
+Installer will:
+- create `.venv`
+- install dependencies
+- create `.env` from `.env.example`
+- auto-generate `XTTS_AUTH_TOKEN` if missing/placeholder
+- install + start launchd service (`com.xtts.server`)
 
-What installer does:
-- Creates `.venv` (Python 3.10-3.12).
-- Installs backend dependencies.
-- Creates `.env` from `.env.example` if missing.
-- Generates secure `XTTS_AUTH_TOKEN` if missing/placeholder.
-- Installs + starts `launchd` agent (`com.xtts.server`).
+---
 
-## Agent Mode (non-interactive)
-Same command works for agents.
+## For AI Agents
 
-Optional environment flags:
+This repo is built for non-interactive setup.
+
+Same installer works for agents:
+
 ```bash
 WITH_LAUNCHD=1 USE_CAFFEINATE=0 PYTHON_BIN=python3.12 ./install.sh
 ```
 
-- `WITH_LAUNCHD=0`: setup deps/env only.
-- `USE_CAFFEINATE=1`: use `caffeinate` run script in launchd.
-- `PYTHON_BIN=...`: force specific Python binary.
+Flags:
+- `WITH_LAUNCHD=0` -> only setup env/deps
+- `USE_CAFFEINATE=1` -> run service with `caffeinate`
+- `PYTHON_BIN=...` -> force specific Python binary
 
-## Verify
+---
+
+## Quick Health Check
+
 ```bash
 curl -s http://127.0.0.1:8020/v1/health
 ```
@@ -49,39 +63,71 @@ Get token:
 grep '^XTTS_AUTH_TOKEN=' .env
 ```
 
-## Pairing QR
+---
+
+## Pair iOS App (QR)
+
+When the server starts, it prints:
+- pairing URL (`xtts://pair?...`)
+- ASCII QR directly in terminal
+
 ```bash
 source .venv/bin/activate
+uvicorn app.main:app --host 0.0.0.0 --port 8020 --workers 1
+```
+
+Optional PNG QR generator:
+```bash
 python scripts/generate_pairing_qr.py
 ```
 
-Output image:
-`/tmp/xtts-pairing-qr.png`
+---
 
 ## API
 
 ### `GET /v1/health`
-- `200` health + model status.
+- Returns server/model readiness.
 
 ### `POST /v1/tts`
-- `Authorization: Bearer <token>`
-- `multipart/form-data`
+- Auth: `Authorization: Bearer <token>`
+- Body: `multipart/form-data`
   - `speaker_wav=@file`
   - `payload={"text":"...","language":"en","options":{"speed":1.0}}`
-- Returns: `audio/wav`
+- Response: `audio/wav`
 
 Example:
+
 ```bash
 export XTTS_TOKEN="$(grep '^XTTS_AUTH_TOKEN=' .env | cut -d= -f2-)"
 curl -X POST "http://127.0.0.1:8020/v1/tts" \
   -H "Authorization: Bearer $XTTS_TOKEN" \
-  -F 'payload={"text":"Hello from XTTS server","language":"en","options":{"speed":1.0}}' \
+  -F 'payload={"text":"Hello from local-voice-clone-api","language":"en","options":{"speed":1.0}}' \
   -F "speaker_wav=@/path/to/voice.wav;type=audio/wav" \
-  --output /tmp/xtts_output.wav
-afplay /tmp/xtts_output.wav
+  --output /tmp/local-voice-clone-api.wav
+afplay /tmp/local-voice-clone-api.wav
 ```
 
-## Service Management
+---
+
+## Optional: Auto-Send Audio Message (BlueBubbles)
+
+Set in `.env`:
+
+```bash
+XTTS_IMSG_AUTOSEND_ENABLED=false
+XTTS_IMSG_HOST=
+XTTS_IMSG_PASSWORD=
+XTTS_IMSG_CHAT_GUID=
+XTTS_IMSG_FFMPEG_BIN=ffmpeg
+XTTS_IMSG_CURL_BIN=curl
+XTTS_IMSG_TIMEOUT_SECONDS=30
+```
+
+When enabled, server can convert generated output and send it through your BlueBubbles pipeline.
+
+---
+
+## Service Control
 
 Status:
 ```bash
@@ -98,20 +144,15 @@ Stop:
 launchctl bootout gui/$(id -u) ~/Library/LaunchAgents/com.xtts.server.plist
 ```
 
-Start (again):
-```bash
-launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.xtts.server.plist
-launchctl enable gui/$(id -u)/com.xtts.server
-launchctl kickstart -k gui/$(id -u)/com.xtts.server
-```
-
 Logs:
 ```bash
 tail -f /tmp/xtts.out.log /tmp/xtts.err.log
 ```
 
-## Config (`.env`)
-Important keys:
+---
+
+## Core Config
+
 ```bash
 XTTS_PORT=8020
 XTTS_AUTH_TOKEN=<auto-generated>
@@ -122,24 +163,35 @@ XTTS_SHOW_PAIRING_QR=true
 XTTS_PAIR_HOST=
 ```
 
-Optional iMessage auto-send (BlueBubbles private API):
-```bash
-XTTS_IMSG_AUTOSEND_ENABLED=false
-XTTS_IMSG_HOST=
-XTTS_IMSG_PASSWORD=
-XTTS_IMSG_CHAT_GUID=
-XTTS_IMSG_FFMPEG_BIN=ffmpeg
-XTTS_IMSG_CURL_BIN=curl
-XTTS_IMSG_TIMEOUT_SECONDS=30
-```
+---
 
 ## Troubleshooting
-- Python version error: install Python 3.12 and rerun.
-- `ModuleNotFoundError` / dependency mismatch: recreate venv and rerun installer.
-- `health` fails: check launchd status + logs.
-- Mac sleep drops availability: use `USE_CAFFEINATE=1` or adjust macOS power settings.
 
-## Files Added for Portable Setup
-- `install.sh` (bootstrap + launchd setup)
-- `scripts/install_launchd.sh` (path-safe launchd install/reload)
-- `launchd/com.xtts.server.plist.template` (template, no hardcoded local path)
+- Python mismatch -> install Python 3.12, rerun installer
+- Dependency issues -> delete `.venv`, rerun installer
+- Server not responding -> check launchctl status + `/tmp/xtts*.log`
+- Offline while Mac sleeps -> use `USE_CAFFEINATE=1` or tune macOS power settings
+
+---
+
+## Repo Layout
+
+```text
+.
+├── app/                      # FastAPI + XTTS runtime
+├── scripts/                  # run/install helper scripts
+├── launchd/                  # launchd plist template
+├── install.sh                # one-line bootstrap target
+├── .env.example
+└── requirements.txt
+```
+
+---
+
+## Vibe
+
+`local-voice-clone-api` is built for a specific kind of workflow:
+- local-first
+- no cloud lock-in
+- agent-operable
+- built to ship fast
