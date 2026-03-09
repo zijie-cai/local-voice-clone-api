@@ -32,7 +32,7 @@ This repo is the backend only. It does **not** include the iOS app code.
 
 ### 🦞 OpenClaw using local-voice-clone-api
 
-https://github.com/zijie-cai/local-voice-clone-api/raw/main/assets/demo_claw.mp4
+https://github.com/user-attachments/assets/6d19254c-1389-4207-a02e-f0dc7021ada5
 
 ### 📱 iOS app demo
 
