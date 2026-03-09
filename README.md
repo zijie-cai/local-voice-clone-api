@@ -2,7 +2,7 @@
 
 <img src="./assets/banner-v2.png" alt="local-voice-clone-api banner" width="1100">
 
-### 🦞 [OpenClaw Demo](https://github-production-user-asset-6210df.s3.amazonaws.com/74931355/560497784-737776b3-16ee-4d83-a9e1-8bab96252f08.mp4?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20260309%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260309T185516Z&X-Amz-Expires=300&X-Amz-Signature=7fd0119fd4ce9d93f17e090c7f23743ea9dd770c3b97060f775a3a0e0650e0ac&X-Amz-SignedHeaders=host)
+### 🦞 [OpenClaw Demo]
 
 https://github-production-user-asset-6210df.s3.amazonaws.com/74931355/560497784-737776b3-16ee-4d83-a9e1-8bab96252f08.mp4?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20260309%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260309T185516Z&X-Amz-Expires=300&X-Amz-Signature=7fd0119fd4ce9d93f17e090c7f23743ea9dd770c3b97060f775a3a0e0650e0ac&X-Amz-SignedHeaders=host
 
