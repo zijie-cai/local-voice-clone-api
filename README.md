@@ -283,7 +283,4 @@ tail -f /tmp/xtts.out.log /tmp/xtts.err.log
 
 ## Attribution
 
-Voice cloning and speech generation are powered by Coqui XTTS-v2.
-
-Model reference:
-- [coqui/XTTS-v2](https://huggingface.co/coqui/XTTS-v2)
+Voice cloning and speech generation are powered by [Coqui XTTS-v2](https://huggingface.co/coqui/XTTS-v2).
